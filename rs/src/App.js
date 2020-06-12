@@ -51,7 +51,7 @@ class LoginForm extends Component {
                   Login
                 </Button>
                 <If condition={resp.data === 'Usuário ou senha inválidos!'}>
-                  <span className='login-msg'>Login/Senha inválidos!</span>
+                  <span className='loginmsg'>Login/Senha inválidos!</span>
                 </If>
               </Segment>
             </Form>
