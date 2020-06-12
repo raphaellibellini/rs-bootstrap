@@ -1,0 +1,22 @@
+.grid {
+    height: 100vh !important;
+}
+
+.column {
+    max-width: 450px !important;
+}
+
+.btn {
+    background-color: #563d7c !important;
+    color: #fff !important; 
+    margin-bottom: 16px !important;
+}
+
+.header {
+    color: #563d7c !important;
+}
+
+.login-msg {
+    font-weight: bold !important;
+    color: #563d7c !important;
+}
