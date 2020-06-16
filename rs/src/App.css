@@ -20,3 +20,17 @@
     font-weight: bold !important;
     color: #563d7c !important;
 }
+
+.welcome {
+    text-align: center;
+    font-size: 44px;
+    margin-top: 10% !important;
+    font-family: 'Anton', sans-serif;
+}
+
+.name {
+    text-align: center;
+    font-size: 44px;
+    font-family: 'Anton', sans-serif;
+    color: #563d7c !important;
+}

@@ -3,6 +3,7 @@ import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react';
 import api from '../src/utils/api';
 import If from '../src/If';
 import './App.css';
+import { Redirect } from 'react-router-dom';
 
 class LoginForm extends Component {
   constructor(props){
@@ -10,25 +11,31 @@ class LoginForm extends Component {
     this.state = {
       username:'',
       password:'', 
-      resp: {}
+      resp: {},
+      redirect: false
     }
   }
 
   submit = async() => {
     await api.post('/usuario/login', {login: this.state.username, senha: this.state.password}).then((resp) => {
-      console.log('resp', resp);
       this.setState({resp});
-      console.log('respState', this.state.resp);
-      
-      
+      if(this.state.resp.data !== 'Usuário ou senha inválidos!') {
+        this.setState({ redirect: true })
+      }
     }).catch((error) => {
       console.log('error', error);
-      
     });  
   }
 
   render() {
     const { resp } = this.state
+    
+    if(this.state.redirect) {
+      return <Redirect to={{
+        pathname: '/userinfos',
+        state: resp.data
+      }}/>
+    }else {
       return (
         <Grid textAlign='center' className='grid' verticalAlign='middle'>
           <Grid.Column className='column'>
@@ -58,6 +65,7 @@ class LoginForm extends Component {
           </Grid.Column>
         </Grid>
       )
+    }
   }
 }
 
